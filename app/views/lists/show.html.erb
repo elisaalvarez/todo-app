@@ -1,14 +1,66 @@
 <div class="row my-5">
-    <div class= "col-12 col-md-4">
+  <div class="col-12 col-md-4">
+  </div>
+  <div class="col-12 col-md-4">
+    <p id="notice"><%= notice %></p>
+    <h1><%= @list.name %></h1>
+
+    <h3>Tasks</h3>
+    <table id="task">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th colspan="2">Options</th>
+      </tr>
+      <% @list.tasks.each do |task|%>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= link_to 'Edit'%></td>
+        <td><%= link_to 'Delete'%></td>
+      </tr>
+      <% end%>
+
+    </table>
+    <!-- Button add task modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      Add a new Task
+    </button>
+
+    <!-- Add Task -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #FFF5EE;>
+            <h5 class=" modal-title" id="exampleModalCenterTitle">New Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form_with(model: [@list, @list.tasks.build], local: true) do |form|%>
+            <div class="field">
+              <%= form.label :name %>
+              <%= form.text_field :name, class: 'col-12' %>
+              <%= form.label :description %>
+              <%= form.text_field :description, class: 'col-12' %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= form.submit %>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class= "col-12 col-md-4">
-        <p id="notice"><%= notice %></p>
-        <h1>List information</h1>
-        <p><%= @list.name %></p>
-        <p><%= current_user.email%></p>
-        <%= link_to 'Edit', edit_list_path(@list) %> |
-        <%= link_to 'Back', lists_path %>
-    </div>
-    <div class= "col-12 col-md-4">
-    </div>
+    <br>
+    <%= link_to 'Edit List', edit_list_path(@list) %> |
+    <%= link_to 'Back', lists_path %>
+  </div>
+  <div class="col-12 col-md-4">
+  </div>
 </div>

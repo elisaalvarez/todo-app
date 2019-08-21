@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :tasks
-  resources :lists
+  resources :lists do
+    resources :tasks
+  end
   get 'hello/index'
   # get 'devise/sessions#destroy'
   devise_for :users
