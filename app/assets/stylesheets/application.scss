@@ -13,5 +13,19 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
- 
+@import "bootstrap";
+
+
+a:hover {
+  cursor: pointer;
+  background: #ECC5C0;
+}
+
+nav {
+  background-color: #FFF5EE;
+}
+
+.badge {
+  background-color: #ECC5C0;
+  color: #786D5F;
+}

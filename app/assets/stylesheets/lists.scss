@@ -1,9 +1,14 @@
 // Place all the styles related to the Lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+$SeaShell: #FFF5EE;
 table#task {
-  background-color: #FDD7E4;
+  background-color: $SeaShell;
   border-radius: 5px;
   text-align: center;
 } 
+
+a:hover {
+  cursor: pointer;
+  background: #ECC5C0;
+}

@@ -13,29 +13,30 @@
         <th>Description</th>
         <th colspan="2">Options</th>
       </tr>
-      <% @list.tasks.each do |task|%>
-      <tr>
+     <% @list.tasks.each do |task|%>
+      <tr id="taskInfo">
         <td><input type="checkbox"></td>
         <td><%= task.name %></td>
         <td><%= task.description %></td>
-        <td><%= link_to 'Edit'%></td>
-        <td><%= link_to 'Delete'%></td>
+        <td><%= link_to 'Update' %></td>
+        <td><%= link_to 'Delete' %></td>
       </tr>
-      <% end%>
+     <% end%>
 
     </table>
+    
     <!-- Button add task modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createTask">
       Add a new Task
     </button>
 
     <!-- Add Task -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="createTask" tabindex="-1" role="dialog"
+      aria-labelledby="createTaskTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #FFF5EE;>
-            <h5 class=" modal-title" id="exampleModalCenterTitle">New Task</h5>
+          <div class="modal-header" style="background-color: #FFF5EE;">
+            <h5 class=" modal-title" id="createTaskTitle">New Task</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
