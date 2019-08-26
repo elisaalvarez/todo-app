@@ -57,3 +57,7 @@ gem "devise", "~> 4.6"
 gem "bootstrap", "~> 4.3"
 
 gem "jquery-rails", "~> 4.3"
+
+gem "wicked_pdf", "~> 1.4"
+
+gem "wkhtmltopdf-binary", "~> 0.12.4"

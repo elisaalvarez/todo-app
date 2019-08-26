@@ -23,9 +23,32 @@ a:hover {
 
 nav {
   background-color: #FFF5EE;
+  
+  .user-photo{
+    height: 35px;
+    border: 2px solid #ECC5C0;
+    border-radius: 25%;
+  }
+
+  .log-out-img{
+    height: 35px;
+    border: 2px solid #ECC5C0;
+    border-radius: 25%;
+  }
+
+  .edit-img{
+    height: 35px;
+    border: 2px solid #ECC5C0;
+    border-radius: 25%;
+  }
+
+  nav-link{
+    height: 35px;
+  }
 }
 
 .badge {
   background-color: #ECC5C0;
   color: #786D5F;
 }
+

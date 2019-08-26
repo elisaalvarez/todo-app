@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1.json
   def update
     @list = List.find(params[:list_id])
-    @task = Task.find(params[:id])
+    @task = @list.tasks.find(params[:id])
     @task.update(task_params)
     respond_to do |format|
       if @task.update(task_params)
