@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<%= wicked_pdf_stylesheet_link_tag 'listpdf' %>
+<head>
+  <title><%= @list.name %> PDF export</title>
+</head>
+
+<body>
+  <h2><%= @list.name %></h2>
+  <h5>List created by:</h5>
+  <div>
+   <% if current_user.photo.attached? %>
+    <%= image_tag(current_user.photo, height: '30px') %>
+   <% else %>
+    <%= wicked_pdf_image_tag('cat.png', height: '30px') %>
+   <% end %>
+  <%= current_user.name %>
+  </div>
+    <table class="table">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+     <% @list.tasks.each do |task|%>
+      <tr id="taskInfo">
+        <td><%= wicked_pdf_image_tag('pawtag.png', height: '30')%></td>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+      </tr>
+     <% end%>
+
+    </table>
+</body>
+
+</html>
