@@ -8,7 +8,21 @@ table#task {
   text-align: center;
 } 
 
+h1{
+  text-align: center;
+}
+
 a:hover {
   cursor: pointer;
   background: #ECC5C0;
+}
+
+.btn-primary{
+  background-color: #ECC5C0 !important;
+  color:  #786D5F !important;
+  border: none !important;
+}
+
+.btn-primary:hover{
+  color: #FFFFFF !important;
 }

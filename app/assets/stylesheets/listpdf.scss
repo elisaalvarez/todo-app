@@ -1,4 +1,8 @@
 @import "bootstrap";
+body{
+  color: #42392e;
+}
+
 th {
   background-color: #ECC5C0;
   color: #786D5F;
@@ -7,9 +11,15 @@ th {
 
 td{
   background-color: #FFF5EE;
+  color: #4d4439;
   text-align: center;
 }
 
 h2{
+  color: #42392e;
   text-align: center;
+}
+
+h5, div{
+  color: #42392e;
 }

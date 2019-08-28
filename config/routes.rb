@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :tasks
   end
   get 'hello/index'
+  get 'hello/showuser'
   # get 'devise/sessions#destroy'
   devise_for :users
   root :to => "hello#index"
