@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <div class="navbar-brand">TODO</div>
+  <div class="navbar-brand">
+    <%= image_tag('rilakkuma.png', height: '40px')%>
+  </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,7 +31,7 @@
           <% else %>
           <%= image_tag('cat.png', class: 'user-photo rounded-circle') %>
           <% end %>
-          <%= link_to('My profile', 'hello/showuser') %>
+          <%= link_to('My profile', '/hello/showuser') %>
           <%= image_tag('pawcat.png', class: 'edit-img rounded-circle')%>
           <%= link_to('Update', edit_user_registration_path)%>
           <div class="dropdown-divider"></div>

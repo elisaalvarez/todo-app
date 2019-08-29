@@ -1,9 +1,25 @@
 <div class="row my-5">
-  <div class="col-12 col-md-4">
+  <div class="col-12 col-md-2">
   </div>
-  <div class="col-12 col-md-4">
-  <%= current_user.name %>
+  <div class="col-12 col-md-2">
   </div>
-  <div class="col-12 col-md-4">
+  <div class="col-12 col-md-2 text-right">
+    <% if current_user.photo.attached? %>
+    <%= image_tag(current_user.photo, height: '150px') %>
+    <% else %>
+    <%= image_tag('cat.png', height: '150px') %>
+    <% end %>
   </div>
+  <div class="col-12 col-md-2 text-left">
+  <br><br>
+  Name: <br>
+    <%= current_user.name %>
+    <br>
+    e-mail: <br>
+    <%= current_user.email %>
   </div>
+  <div class="col-12 col-md-2">
+  </div>
+  <div class="col-12 col-md-2">
+  </div>
+</div>

@@ -1,6 +1,26 @@
 <h1>Editing Task</h1>
-
-<%= render 'form', task: @task %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<% if @task.errors.any? %>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+   <%= pluralize(@task.errors.count, "error") %>
+  <ul>
+    <% @task.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+<% end %>
+<%= form_with(model: [@list, @list.tasks.find(@task.id)], local: true) do |form|%>
+<div class="field">
+  <%= form.label :name %>
+  <%= form.text_field :name, class: 'col-12' %>
+  <%= form.label :description %>
+  <%= form.text_field :description, class: 'col-12' %>
+</div>
+<div class="actions">
+    <%= form.submit %>
+</div>
+<% end %>
+<%= link_to 'Back', @list %>
