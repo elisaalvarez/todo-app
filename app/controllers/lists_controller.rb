@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  
+
   def index
     @lists = current_user.lists.all
   end
@@ -9,7 +11,7 @@ class ListsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.csv { send_data @list.tasks.to_csv(['name','description']) }
+      format.csv { send_data @list.tasks.to_csv(%w[name description]) }
       format.pdf { render template: 'lists/listpdf', pdf: 'TODOList' }
     end
     ApplicationJob.perform_later(current_user) # params.permit(:message)[:message]
@@ -19,8 +21,7 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @list = current_user.lists.new(list_params)
@@ -57,11 +58,12 @@ class ListsController < ApplicationController
   end
 
   private
-    def set_list
-      @list = current_user.lists.find(params[:id])
-    end
 
-    def list_params
-      params.require(:list).permit(:name)
-    end
+  def set_list
+    @list = current_user.lists.find(params[:id])
+  end
+
+  def list_params
+    params.require(:list).permit(:name)
+  end
 end
