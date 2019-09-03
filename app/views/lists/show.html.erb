@@ -2,14 +2,29 @@
   <div class="col-12 col-md-4">
   </div>
   <div class="col-12 col-md-4">
-  <% if notice %>
+    <% if notice.is_a?(Hash) %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      Task can't be saved:
+      <ul>
+        <% notice.each do |key, messages| %>
+        <li><%= key %><% messages.each do |message| %>
+        <%= message %>
+        <% end %>
+        </li>
+        <% end %>
+      </ul>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% elsif notice %>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-   <%= notice %>
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  </div>
-  <% end %>
+      <%= notice %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% end %>
     <h1><%= @list.name %></h1>
     <table id="task">
       <tr>
@@ -31,15 +46,15 @@
     </table>
     <!-- Button add task modal -->
     <div class="row">
-    <div class="col-6">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createTask">
-      Add a new Task
-    </button>
-    </div>
-    <div class="col-6 text-right">
-     <%= link_to 'PDF', list_path(@list, format: 'pdf'), target: '_blank', class: 'btn btn-primary' %>
-      <%= link_to 'CSV', list_path(@list, format: 'csv'), class: 'btn btn-primary' %>
-    </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createTask">
+          Add a new Task
+        </button>
+      </div>
+      <div class="col-6 text-right">
+        <%= link_to 'PDF', list_path(@list, format: 'pdf'), target: '_blank', class: 'btn btn-primary' %>
+        <%= link_to 'CSV', list_path(@list, format: 'csv'), class: 'btn btn-primary' %>
+      </div>
     </div>
     <!-- Add Task -->
     <div class="modal fade" id="createTask" tabindex="-1" role="dialog" aria-labelledby="createTaskTitle"

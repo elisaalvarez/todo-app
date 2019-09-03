@@ -63,3 +63,5 @@ gem "wicked_pdf", "~> 1.4"
 gem "wkhtmltopdf-binary", "~> 0.12.4"
 
 gem "sidekiq", "~> 5.2"
+
+gem "sidekiq-scheduler", "~> 3.0"

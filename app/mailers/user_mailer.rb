@@ -1,8 +1,8 @@
 class UserMailer < ApplicationMailer
-  default from: 'uni.soft@hotmail.com'
+  # default from: 'uni.soft@hotmail.com'
 
-  def welcome_email
+  def submission(user)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to My Site')
+    mail(to: @user.email, subject: 'New contact page submission')
   end
 end

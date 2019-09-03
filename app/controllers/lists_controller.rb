@@ -12,6 +12,7 @@ class ListsController < ApplicationController
       format.csv { send_data @list.tasks.to_csv(['name','description']) }
       format.pdf { render template: 'lists/listpdf', pdf: 'TODOList' }
     end
+    ApplicationJob.perform_later(current_user) # params.permit(:message)[:message]
   end
 
   def new

@@ -3,11 +3,13 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tasks = Task.all
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.all
   end
 
   def new
-    @task = Task.new
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.all
   end
 
   def edit
@@ -24,7 +26,7 @@ class TasksController < ApplicationController
         format.html { redirect_to @list, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
-        format.html { render :new }
+        format.html { redirect_to @list, notice: @task.errors }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
