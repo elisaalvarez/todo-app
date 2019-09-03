@@ -2,14 +2,15 @@
   <div class="col-12 col-md-4">
   </div>
   <div class="col-12 col-md-4">
+    <h1><%= @list.name %></h1>
     <% if notice.is_a?(Hash) %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
       Task can't be saved:
       <ul>
         <% notice.each do |key, messages| %>
         <li><%= key %><% messages.each do |message| %>
-        <%= message %>
-        <% end %>
+          <%= message %>
+          <% end %>
         </li>
         <% end %>
       </ul>
@@ -25,7 +26,6 @@
       </button>
     </div>
     <% end %>
-    <h1><%= @list.name %></h1>
     <table id="task">
       <tr>
         <th></th>
