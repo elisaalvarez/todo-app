@@ -21,7 +21,6 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def edit; end
 
   def create
     @list = current_user.lists.new(list_params)

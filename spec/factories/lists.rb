@@ -3,6 +3,5 @@
 FactoryBot.define do
   factory :list do
     name { Faker::Name.name }
-    user { association(:user) }
   end
 end

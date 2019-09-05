@@ -38,6 +38,7 @@ end
 gem 'bootstrap', '~> 4.3'
 gem 'devise', '~> 4.6'
 gem 'jquery-rails', '~> 4.3'
+gem 'rails-controller-testing'
 gem 'sidekiq', '~> 5.2'
 gem 'sidekiq-scheduler', '~> 3.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
