@@ -36,7 +36,7 @@ group :development do
 end
 
 gem 'bootstrap', '~> 4.3'
-gem 'devise', '~> 4.6'
+gem 'devise', '~> 4.7'
 gem 'jquery-rails', '~> 4.3'
 gem 'rails-controller-testing'
 gem 'sidekiq', '~> 5.2'
